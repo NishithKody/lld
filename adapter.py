@@ -12,7 +12,7 @@ class Adapter:
     def new_operation(self):
         return(f"Adapter:{self.oldSystem.legacy_work()}")
 
-def client_code(adapter:Adapter):
+def client_code(adapter):
     result = adapter.new_operation()
     print(result)
 

@@ -1,0 +1,38 @@
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        graph = {}
+
+        for i in range(numCourses):
+            graph[i]=[]
+        
+        for [f,s] in prerequisites:
+            graph[f].append(s)
+
+        visit = set()
+        cycle = set()
+        res = []
+
+        def util(node):
+            if node in cycle:
+                return False
+            
+            if node in visit:
+                return True
+            
+            cycle.add(node)
+            visit.add(node)
+
+            for ngh in graph[node]:
+                val = util(ngh)
+                if(val==False):
+                    return False
+            cycle.remove(node)
+            res.append(node)
+        
+        for i in range(numCourses):
+            val = util(i)
+            if(val == False):
+                return []
+        
+        return res
+        
