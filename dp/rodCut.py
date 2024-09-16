@@ -33,3 +33,29 @@ while t:
     price, n = takeInput()
     print(cutRod(price, n))
     t = t-1
+
+#dp
+def cutRod(price, n):
+
+    dp = []
+    for i in range(len(price)):
+        val = [0] * (n+1)
+        dp.append(val)
+    
+    for i in range(len(price)):
+        dp[i][0] = 0
+    
+    for i in range(len(price)):
+        for j in range(n+1):
+            if(i==0):
+                dp[i][j] = price[i] * j
+            else:
+                dsel = dp[i-1][j]
+                sel = -float('inf')
+                rodLen = i +1
+                if(rodLen <=j):
+                    sel = dp[i][j-rodLen] + price[i]
+                
+                dp[i][j] = max(sel,dsel)
+
+    return dp[len(price)-1][n]
