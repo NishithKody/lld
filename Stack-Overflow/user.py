@@ -16,13 +16,15 @@ class User:
         qu = Question(content, title, self, tags)
         self.questions.append(qu)
         self.rep += 5
+        return qu
     
     def answer_question(self,question, content):
         ans = Answer(self, question, content)
         self.answers.append(ans)
+        return ans
     
     def  comment_on(self, commentable, content):
         comment = Comment(self, content)
         self.comments.append(comment)
         commentable.add_comment(comment)
-    
+        
