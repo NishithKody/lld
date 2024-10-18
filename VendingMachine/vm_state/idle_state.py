@@ -26,6 +26,3 @@ class IdleState(State):
 
     def return_change(self):
         print('please select product')
-
-
-    
