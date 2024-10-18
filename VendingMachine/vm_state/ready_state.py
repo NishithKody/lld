@@ -1,4 +1,4 @@
-from state import State
+from vm_state.state import State
 from product import Product
 from coins import Coin
 from cash import Cash

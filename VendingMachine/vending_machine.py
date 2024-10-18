@@ -1,9 +1,11 @@
 from typing import Dict, List
 from product import Product
 from inventory import Inventory
-from state import State
-from idle_state import IdleState
-from ready_state import ReadyState
+from vm_state.state import State
+from vm_state.idle_state import IdleState
+from vm_state.ready_state import ReadyState
+from coins import Coin
+from cash import Cash
 
 class VendingMachine:
     _instance = None
@@ -31,7 +33,17 @@ class VendingMachine:
 
     def select_product(self, product):
         self.current_state.select_product(product)
-    #collect money
+    
+    def add_coin(self, coin:Coin):
+        self.total_payment += coin.value
+    
+    def add_cash(self, cash:Cash):
+        self.total_payment += cash.value
+    
+    def reset_product(self):
+        self.selected_product = None
+    
+    def reset_payment(self):
+        self.total_payment = 0
 
-    #restock
 
