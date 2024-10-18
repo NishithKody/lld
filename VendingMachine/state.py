@@ -7,7 +7,7 @@ class State:
         pass
 
     @abstractmethod
-    def insert_coin(self, coint):
+    def insert_coin(self, coin):
         pass
 
     @abstractmethod
