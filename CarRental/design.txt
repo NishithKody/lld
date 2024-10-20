@@ -1,0 +1,41 @@
+car rental
+
+Car - 
+id,
+make
+model
+year
+price
+plate
+isReserved
+
+
+Reservation - 
+id
+carid
+userid
+start
+end
+IsChecked
+() checkin
+() checkout
+
+Uses-
+id
+name
+email
+dl
+() search
+() makeReservation
+() modify/DeleteResevation
+
+Payment-
+() makePayment
+
+System - 
+search()
+
+
+
+
+
