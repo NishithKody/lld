@@ -1,0 +1,11 @@
+enum signals - res, yellow,green
+
+signal 
+    type
+    time
+
+states:
+    to green
+    to yellow
+    to red
+    update
