@@ -1,0 +1,21 @@
+user
+id
+name
+acc
+card 
+
+
+cash dispenser
+id
+dispense
+
+
+backend
+userid
+pin
+
+
+account
+id,
+userid
+amt
