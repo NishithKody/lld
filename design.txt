@@ -1,0 +1,54 @@
+Hotel management System
+
+
+HMS:
+init- 
+rooms = {}
+GuestRoomMapping = {}
+
+def list_rooms
+
+def book_room(room_id, guest_id)
+
+def check_in(reservation_id)
+
+def check_out(reservation_id)
+
+
+
+Guest:
+name
+email
+
+Reservation:
+id
+Guestid
+roomId
+
+
+Room
+id
+type
+status
+cost
+isAvail
+CheckIn()
+Checkout()
+
+
+PaymentInterface:
+pay()
+
+CardPayment(PaymentInterface):
+pay()
+
+RoomType:
+single
+double
+suite
+
+ReservationStatus:
+booked
+checkedIn
+checkedOut
+
