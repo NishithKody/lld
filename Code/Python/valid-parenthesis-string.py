@@ -27,3 +27,30 @@ class Solution:
         res = util(0,0)
         return res
     
+    
+    class Solution:
+        def checkValidString(self, s: str) -> bool:
+            left = []
+            star = []
+
+            for i,val in enumerate(s):
+                if(val=='('):
+                    left.append(i)
+                elif(val=='*'):
+                    star.append(i)
+                else:
+                    if(len(left)==0 and len(star)==0):
+                        return False
+                    if(left):
+                        left.pop()
+                    elif(star):
+                        star.pop()
+
+            while(left and star):
+                if(left.pop()>star.pop()):
+                    return False
+            
+            if(left):
+                return False
+            else:
+                return True
