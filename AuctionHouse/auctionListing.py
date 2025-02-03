@@ -2,11 +2,13 @@ from auctionStatus import AuctionStatus
 from uuid import uuid4
 from typing import List
 from bid import Bid
+from user import User
+from message import Message
 
 class AuctionListing:
-    def __init__(self, userId, price, productName, duration):
+    def __init__(self, user:User, price, productName, duration):
         self.id = uuid4()
-        self.userId = userId
+        self.user = user
         self.price = price
         self.productName = productName
         self.duration = duration
@@ -17,18 +19,15 @@ class AuctionListing:
     def getAllBids(self):
         return self.bids
     
-    def bidOnListing(self, userId, price):
-        newBid = Bid(userId,self.id, price)
+    def bidOnListing(self, user, price):
+        newBid = Bid(user, self.id, price)
         self.bids.append(newBid)
         if(price>self.highestBid):
             self.highestBid = price
     
-    def deactivateBid(self):
+    def deactivateListing(self):
         self.status = AuctionStatus.Inactive
-        
     
-
-    
-
-
-        
+    def notifyUser(self, price):
+        msg = Message("A bid has been placed for",price)
+        self.user.notifyUser(msg)

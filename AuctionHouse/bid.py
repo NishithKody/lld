@@ -1,4 +1,6 @@
 
 class Bid:
     def __init__(self,userId, listingId, price):
-        pass
+        self.userId = userId
+        self.listingId = listingId
+        self.price = price
