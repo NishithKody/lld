@@ -1,4 +1,4 @@
-from AuctionHouse.Interfaces.messageInterface import MessageInterface
+from Interfaces.messageInterface import MessageInterface
 from typing import List
 
 class Message(MessageInterface):

@@ -16,11 +16,14 @@ class AuctionListing:
         self.bids: List[Bid] = []
         self.status = AuctionStatus.Active
     
+    def getListingDetils(self):
+        return f"Product: ${self.productName} Price: ${self.price} Highest Bid: ${self.highestBid} Duration: ${self.duration}"
+    
     def getAllBids(self):
         return self.bids
     
     def bidOnListing(self, user, price):
-        newBid = Bid(user, self.id, price)
+        newBid = Bid(user, price)
         self.bids.append(newBid)
         if(price>self.highestBid):
             self.highestBid = price
@@ -31,3 +34,4 @@ class AuctionListing:
     def notifyUser(self, price):
         msg = Message("A bid has been placed for",price)
         self.user.notifyUser(msg)
+    

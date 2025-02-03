@@ -1,6 +1,5 @@
 
 class Bid:
-    def __init__(self,userId, listingId, price):
-        self.userId = userId
-        self.listingId = listingId
+    def __init__(self, user, price):
+        self.user = user
         self.price = price

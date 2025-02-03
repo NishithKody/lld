@@ -1,5 +1,5 @@
 from uuid import uuid4
-from AuctionHouse.Interfaces.messageInterface import MessageInterface
+from Interfaces.messageInterface import MessageInterface
 from typing import List
 
 class User:
@@ -20,5 +20,8 @@ class User:
         self.messages.append(message)
 
     def getLatestmessage(self): 
-        return self.messages.pop().getMessage()
+        if(len(self.messages)>0):
+            return self.messages.pop().getMessage()
+        else:
+            return "no new messages"
     
